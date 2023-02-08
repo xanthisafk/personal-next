@@ -13,7 +13,7 @@ export default function Home() {
         <meta name="description" content="Abhinav Shrivastava is building software and web-related projects that use bleeding-edge technologies." />
         <meta name="keywords" content="software, developer, engineer, software engineer, web developer, web dev, web dev for hire, software developer for hire, cheap discord bots, cheap website in India, cheap software in India, full stack, full stack developer, front end, front end developer, back end developer, back end engineer, frontend, frontend developer, backend developer, backend engineer, frontend engineer, front end engineer, SQL, MySQL, database, SQL server, MySQL, Microsoft SQL, dba, database admin, " />
         <meta name="robots" content="index, follow" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="language" content="English" />
         <meta name="revisit-after" content="10 days" />
         <meta name="author" content="Abhinav Shrivastava" />
