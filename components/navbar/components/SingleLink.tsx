@@ -5,9 +5,10 @@ import HackerEffect from '../../../lib/hackerEffect';
 
 function SingleLink({ Text, URL, Key }) {
     const router = useRouter();
+
     return (
         <Link
-            key={"nav-" + Key}
+            key={`nav-${Key}`}
             fontFamily={'"Fira Code", monospaced'}
             fontSize={'1rem'}
             color={'#FF0049'}

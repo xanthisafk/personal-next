@@ -11,7 +11,7 @@ const LinkElementHorizontal = () => {
         <>
             <Flex
                 gap={30}
-                display={{ lg: 'flex', md: 'none', sm: 'none' }}
+                display={{ lg: 'flex', md: 'none', sm: 'none', base: 'none' }}
                 alignItems={"center"}
             >
                 {data.linkData.map(({ Text, URL }, index) => (<SingleLink Text={Text} URL={URL} Key={index} />))}
