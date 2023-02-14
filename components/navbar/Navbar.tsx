@@ -1,46 +1,79 @@
-import { Box, Flex, HStack, Link, useColorMode } from '@chakra-ui/react';
-import React from 'react';
-import logo_light from '../../public/abhinav_logo_light.svg';
-import logo_dark from '../../public/abhinav_logo_dark.svg';
-import NextImage from 'next/image';
-import ThemeToggleButton from '../misc/ThemeToggleButton';
+import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
+import { Box, Flex, IconButton } from '@chakra-ui/react';
+import React, { useState } from 'react';
 
-function navbar() {
-    const { colorMode } = useColorMode();
+import LinkElementHorizontal from './components/LinkElementHorizontal';
+import LogoImage from './components/LogoImage';
+
+import data from './components/linkData.json';
+import ThemeToggleButton from '../misc/ThemeToggleButton';
+import SingleLink from './components/SingleLink';
+
+
+function Navbar() {
+    const [display, changeDisplay] = useState("none");
     return (
         <Flex
-            minW={'100vw'}
-            minH={'5vh'}
-            justifyContent={'space-between'}
-            alignItems={'center'}
+            alignItems={"center"}
+            justifyContent={"space-between"}
+            role={"navigation"}
         >
-            <Box
-                width={115}
-                height={112}
-                marginTop={{ base: 5, sm: '52px' }}
-                marginLeft={{ base: 5, sm: '112px' }}
+            <LogoImage />
+            <Flex
+                align={"center"}
             >
-                <NextImage
-                    src={colorMode === 'dark' ? logo_dark : logo_light}
-                    alt={"logo of this website"}
-                />
-            </Box>
-            <HStack
-                display={{ base: 'none', md: 'flex' }}
-                paddingLeft={5}
-                gap={{ base: 1, sm: 53 }}
-                className={'nav-link-container'}
+                <LinkElementHorizontal />
+            </Flex>
+            <Box display={{ lg: 'flex', md: 'none', sm: 'none' }} />
+            <IconButton
+                icon={<HamburgerIcon />}
+                minH={"100%"}
+                background={"transparent"}
+                aria-label={"open menu"}
+                display={{ lg: 'none', md: 'flex', sm: 'flex' }}
+                onClick={() => changeDisplay("flex")}
+                marginRight={5}
+            />
+            <Flex
+                display={display}
+                w={"100vw"}
+                h={"100vh"}
+                zIndex={99999}
+                position={"fixed"}
+                top={0}
+                left={0}
+                overflow={"auto"}
+                background={"var(--chakra-colors-chakra-body-bg)"}
+                flexDirection={"column"}
             >
-                <Link>// home</Link>
-                <Link>// blog</Link>
-                <Link>// resume</Link>
-                <Link>// project</Link>
-                <Link>// contact</Link>
-                <ThemeToggleButton />
-            </HStack>
-            <p></p>
+                <Flex alignItems={"center"} justify={'space-between'} flexDirection={"row"}>
+                    <LogoImage />
+                    <Flex justify={"flex-end"} flexDirection={"row"} marginRight={"6px"}>
+                        <ThemeToggleButton size={"lg"} marginY={2} padding={2} />
+                        <IconButton
+                            icon={<CloseIcon />}
+                            aria-label={"Close menu"}
+                            mt={2}
+                            mr={2}
+                            background={"transparent"}
+                            size={"lg"}
+                            onClick={() => changeDisplay("none")}
+                        />
+                    </Flex>
+                </Flex>
+                <Flex
+                    flexDirection={"column"}
+                    align={"left"}
+                    gap={5}
+                    paddingX={5}
+                    marginY={10}
+                >
+                    {data.linkData.map(({ Text, URL }, index) => (<SingleLink Text={Text} URL={URL} Key={index} />))}
+                </Flex>
+            </Flex>
         </Flex>
+
     )
 }
 
-export default navbar
+export default Navbar;

@@ -1,6 +1,6 @@
-import '../styles/globals.css'
-import { ChakraProvider } from '@chakra-ui/react'
-import { theme } from './_theme'
+import '../styles/globals.css';
+import { ChakraProvider } from '@chakra-ui/react';
+import { theme } from '../lib/_theme.ts';
 import "@fontsource/fira-code";
 
 function MyApp({ Component, pageProps }) {

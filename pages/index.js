@@ -35,7 +35,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.svg" />
       </Head>
       <Navbar />
-      <main className={styles.main} />
+      <main />
     </>
   )
 }

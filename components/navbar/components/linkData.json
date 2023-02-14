@@ -1,0 +1,28 @@
+{
+    "linkData" : [
+        {
+            "Text": "home",
+            "URL": "/"
+        },
+        {
+            "Text": "blog",
+            "URL": "/blog"
+        },
+        {
+            "Text": "resume",
+            "URL": "/resume"
+        },
+        {
+            "Text": "projects",
+            "URL": "/projects"
+        },
+        {
+            "Text": "services",
+            "URL": "/services"
+        },
+        {
+            "Text": "contact",
+            "URL": "/contact"
+        }
+    ]
+}
